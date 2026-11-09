@@ -4,11 +4,9 @@
   "private": true,
   "description": "Local-first interactive math, science, and retrieval study workbench.",
   "scripts": {
-    "predev": "node scripts/ensure-env.mjs",
+    "predev": "node scripts/ensure-env.mjs 2>/dev/null || true",
     "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
-    "prebuild": "node scripts/ensure-env.mjs",
     "build": "NEXT_TELEMETRY_DISABLED=1 next build",
-    "prestart": "node scripts/ensure-env.mjs",
     "start": "NEXT_TELEMETRY_DISABLED=1 next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",

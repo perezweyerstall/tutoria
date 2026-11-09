@@ -1,0 +1,1507 @@
+/* ==========================================================================
+   TutorIA — Apple Human Interface Guidelines (HIG) Design System
+   Liquid Glass Materials, Dynamic Ambient Blur, and SF Hierarchy (es-419)
+   ========================================================================== */
+
+:root {
+  /* Apple HIG Liquid Glass Surface Tokens (Light Mode Default) */
+  --glass-surface-light: rgba(255, 255, 255, 0.65);
+  --glass-border-light: rgba(255, 255, 255, 0.45);
+  --glass-shadow-light: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+
+  --glass-surface-dark: rgba(30, 30, 30, 0.55);
+  --glass-border-dark: rgba(255, 255, 255, 0.12);
+  --glass-shadow-dark: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+
+  --squircle-radius: 20px;
+  --squircle-radius-sm: 12px;
+  --squircle-radius-lg: 26px;
+
+  /* Active Glass Variables (Light Mode Default) */
+  --glass-surface: var(--glass-surface-light);
+  --glass-border: var(--glass-border-light);
+  --glass-shadow: var(--glass-shadow-light);
+  --glass-inset-specular: inset 0 1px 1px 0 rgba(255, 255, 255, 0.65);
+
+  /* Apple System Palette (Light Mode) */
+  --apple-blue: #007AFF;
+  --apple-blue-hover: #0062cc;
+  --apple-blue-soft: rgba(0, 122, 255, 0.12);
+  --apple-blue-border: rgba(0, 122, 255, 0.35);
+
+  --apple-teal: #30B0C7;
+  --apple-teal-soft: rgba(48, 176, 199, 0.12);
+  --apple-teal-border: rgba(48, 176, 199, 0.35);
+
+  --apple-indigo: #5856D6;
+  --apple-indigo-soft: rgba(88, 86, 214, 0.12);
+
+  --apple-green: #34C759;
+  --apple-green-soft: rgba(52, 199, 89, 0.14);
+  --apple-green-border: rgba(52, 199, 89, 0.35);
+
+  --apple-orange: #FF9500;
+  --apple-orange-soft: rgba(255, 149, 0, 0.14);
+  --apple-orange-border: rgba(255, 149, 0, 0.35);
+
+  --apple-red: #FF3B30;
+  --apple-red-soft: rgba(255, 59, 48, 0.14);
+  --apple-red-border: rgba(255, 59, 48, 0.35);
+
+  --apple-purple: #AF52DE;
+  --apple-purple-soft: rgba(175, 82, 222, 0.14);
+
+  /* System Canvas & Labels (Light Mode) */
+  --bg-canvas: #f2f2f7;
+  --bg-surface: var(--glass-surface);
+  --bg-subtle: rgba(240, 240, 245, 0.65);
+  --bg-inset: rgba(118, 118, 128, 0.12);
+
+  --ink-primary: #1c1c1e;
+  --ink-secondary: rgba(60, 60, 67, 0.75);
+  --ink-muted: rgba(60, 60, 67, 0.52);
+  --ink-tertiary: rgba(60, 60, 67, 0.36);
+
+  --border-hairline: var(--glass-border);
+  --border-strong: rgba(60, 60, 67, 0.28);
+
+  /* Functional study accents mapping */
+  --accent-primary: var(--apple-blue);
+  --accent-primary-hover: var(--apple-blue-hover);
+  --accent-primary-soft: var(--apple-blue-soft);
+
+  --accent-amber: var(--apple-orange);
+  --accent-amber-soft: var(--apple-orange-soft);
+
+  --accent-sage: var(--apple-green);
+  --accent-sage-soft: var(--apple-green-soft);
+
+  --accent-terracotta: var(--apple-red);
+  --accent-terracotta-soft: var(--apple-red-soft);
+
+  /* Apple System Typography */
+  --font-serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", -apple-system-subheadline, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Ambient Canvas Mesh Gradient Lighting */
+  --ambient-orb-1: radial-gradient(circle at 15% 20%, rgba(0, 122, 255, 0.18) 0%, transparent 45%);
+  --ambient-orb-2: radial-gradient(circle at 85% 15%, rgba(52, 199, 89, 0.15) 0%, transparent 40%);
+  --ambient-orb-3: radial-gradient(circle at 50% 85%, rgba(88, 86, 214, 0.14) 0%, transparent 50%);
+  --ambient-orb-4: radial-gradient(circle at 80% 80%, rgba(255, 149, 0, 0.12) 0%, transparent 40%);
+}
+
+/* ==========================================================================
+   Apple Dark Mode (Automatic via prefers-color-scheme OR data-theme="dark")
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --glass-surface: var(--glass-surface-dark);
+    --glass-border: var(--glass-border-dark);
+    --glass-shadow: var(--glass-shadow-dark);
+    --glass-inset-specular: inset 0 1px 1px 0 rgba(255, 255, 255, 0.16);
+
+    --apple-blue: #0A84FF;
+    --apple-blue-hover: #409CFF;
+    --apple-blue-soft: rgba(10, 132, 255, 0.22);
+    --apple-blue-border: rgba(10, 132, 255, 0.45);
+
+    --apple-teal: #32ADE6;
+    --apple-teal-soft: rgba(50, 173, 230, 0.20);
+    --apple-teal-border: rgba(50, 173, 230, 0.45);
+
+    --apple-indigo: #5E5CE6;
+    --apple-indigo-soft: rgba(94, 92, 230, 0.22);
+
+    --apple-green: #30D158;
+    --apple-green-soft: rgba(48, 209, 88, 0.20);
+    --apple-green-border: rgba(48, 209, 88, 0.45);
+
+    --apple-orange: #FF9F0A;
+    --apple-orange-soft: rgba(255, 159, 10, 0.22);
+    --apple-orange-border: rgba(255, 159, 10, 0.45);
+
+    --apple-red: #FF453A;
+    --apple-red-soft: rgba(255, 69, 58, 0.22);
+    --apple-red-border: rgba(255, 69, 58, 0.45);
+
+    --apple-purple: #BF5AF2;
+    --apple-purple-soft: rgba(191, 90, 242, 0.22);
+
+    --bg-canvas: #09090b;
+    --bg-surface: var(--glass-surface-dark);
+    --bg-subtle: rgba(36, 36, 42, 0.65);
+    --bg-inset: rgba(255, 255, 255, 0.08);
+
+    --ink-primary: #f5f5f7;
+    --ink-secondary: rgba(235, 235, 245, 0.72);
+    --ink-muted: rgba(235, 235, 245, 0.50);
+    --ink-tertiary: rgba(235, 235, 245, 0.32);
+
+    --border-hairline: var(--glass-border-dark);
+    --border-strong: rgba(255, 255, 255, 0.24);
+
+    --accent-primary: var(--apple-blue);
+    --accent-primary-hover: var(--apple-blue-hover);
+    --accent-primary-soft: var(--apple-blue-soft);
+
+    --accent-amber: var(--apple-orange);
+    --accent-amber-soft: var(--apple-orange-soft);
+
+    --accent-sage: var(--apple-green);
+    --accent-sage-soft: var(--apple-green-soft);
+
+    --accent-terracotta: var(--apple-red);
+    --accent-terracotta-soft: var(--apple-red-soft);
+
+    --ambient-orb-1: radial-gradient(circle at 15% 20%, rgba(10, 132, 255, 0.22) 0%, transparent 50%);
+    --ambient-orb-2: radial-gradient(circle at 85% 15%, rgba(48, 209, 88, 0.16) 0%, transparent 45%);
+    --ambient-orb-3: radial-gradient(circle at 50% 85%, rgba(94, 92, 230, 0.20) 0%, transparent 55%);
+    --ambient-orb-4: radial-gradient(circle at 80% 80%, rgba(255, 159, 10, 0.14) 0%, transparent 45%);
+  }
+}
+
+:root[data-theme='dark'] {
+  --glass-surface: var(--glass-surface-dark);
+  --glass-border: var(--glass-border-dark);
+  --glass-shadow: var(--glass-shadow-dark);
+  --glass-inset-specular: inset 0 1px 1px 0 rgba(255, 255, 255, 0.16);
+
+  --apple-blue: #0A84FF;
+  --apple-blue-hover: #409CFF;
+  --apple-blue-soft: rgba(10, 132, 255, 0.22);
+  --apple-blue-border: rgba(10, 132, 255, 0.45);
+
+  --apple-teal: #32ADE6;
+  --apple-teal-soft: rgba(50, 173, 230, 0.20);
+  --apple-teal-border: rgba(50, 173, 230, 0.45);
+
+  --apple-indigo: #5E5CE6;
+  --apple-indigo-soft: rgba(94, 92, 230, 0.22);
+
+  --apple-green: #30D158;
+  --apple-green-soft: rgba(48, 209, 88, 0.20);
+  --apple-green-border: rgba(48, 209, 88, 0.45);
+
+  --apple-orange: #FF9F0A;
+  --apple-orange-soft: rgba(255, 159, 10, 0.22);
+  --apple-orange-border: rgba(255, 159, 10, 0.45);
+
+  --apple-red: #FF453A;
+  --apple-red-soft: rgba(255, 69, 58, 0.22);
+  --apple-red-border: rgba(255, 69, 58, 0.45);
+
+  --apple-purple: #BF5AF2;
+  --apple-purple-soft: rgba(191, 90, 242, 0.22);
+
+  --bg-canvas: #09090b;
+  --bg-surface: var(--glass-surface-dark);
+  --bg-subtle: rgba(36, 36, 42, 0.65);
+  --bg-inset: rgba(255, 255, 255, 0.08);
+
+  --ink-primary: #f5f5f7;
+  --ink-secondary: rgba(235, 235, 245, 0.72);
+  --ink-muted: rgba(235, 235, 245, 0.50);
+  --ink-tertiary: rgba(235, 235, 245, 0.32);
+
+  --border-hairline: var(--glass-border-dark);
+  --border-strong: rgba(255, 255, 255, 0.24);
+
+  --accent-primary: var(--apple-blue);
+  --accent-primary-hover: var(--apple-blue-hover);
+  --accent-primary-soft: var(--apple-blue-soft);
+
+  --accent-amber: var(--apple-orange);
+  --accent-amber-soft: var(--apple-orange-soft);
+
+  --accent-sage: var(--apple-green);
+  --accent-sage-soft: var(--apple-green-soft);
+
+  --accent-terracotta: var(--apple-red);
+  --accent-terracotta-soft: var(--apple-red-soft);
+
+  --ambient-orb-1: radial-gradient(circle at 15% 20%, rgba(10, 132, 255, 0.22) 0%, transparent 50%);
+  --ambient-orb-2: radial-gradient(circle at 85% 15%, rgba(48, 209, 88, 0.16) 0%, transparent 45%);
+  --ambient-orb-3: radial-gradient(circle at 50% 85%, rgba(94, 92, 230, 0.20) 0%, transparent 55%);
+  --ambient-orb-4: radial-gradient(circle at 80% 80%, rgba(255, 159, 10, 0.14) 0%, transparent 45%);
+}
+
+/* ==========================================================================
+   Liquid Glass Core Classes (As Explicitly Specified by User Request)
+   ========================================================================== */
+
+.liquid-glass-base {
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  backdrop-filter: blur(25px) saturate(190%);
+  border-radius: var(--squircle-radius);
+  border: 1px solid var(--glass-border-light);
+  background: var(--glass-surface-light);
+  box-shadow: var(--glass-shadow-light), inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.liquid-glass-interactive {
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease;
+}
+
+.liquid-glass-interactive:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-color-scheme: dark) {
+  .liquid-glass-base {
+    background: var(--glass-surface-dark);
+    border-color: var(--glass-border-dark);
+    box-shadow: var(--glass-shadow-dark), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+:root[data-theme='dark'] .liquid-glass-base {
+  background: var(--glass-surface-dark);
+  border-color: var(--glass-border-dark);
+  box-shadow: var(--glass-shadow-dark), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+:root[data-theme='light'] .liquid-glass-base {
+  background: var(--glass-surface-light);
+  border-color: var(--glass-border-light);
+  box-shadow: var(--glass-shadow-light), inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Elevation modifiers */
+.glass-elevation-prominent {
+  box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.16), var(--glass-inset-specular);
+}
+
+.glass-elevation-subtle {
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.04), var(--glass-inset-specular);
+}
+
+/* ==========================================================================
+   Base Elements & Ambient Background Canvas
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-canvas);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: -0.012em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+/* Apple dynamic ambient liquid background mesh */
+body {
+  position: relative;
+  overflow-x: hidden;
+  background-image:
+    var(--ambient-orb-1),
+    var(--ambient-orb-2),
+    var(--ambient-orb-3),
+    var(--ambient-orb-4);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+/* ==========================================================================
+   Apple HIG Typography Hierarchy
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  color: var(--ink-primary);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: -0.024em;
+  line-height: 1.22;
+}
+
+h1 {
+  font-size: clamp(1.85rem, 2.6vw, 2.45rem);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 1.9vw, 1.75rem);
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: clamp(1.12rem, 1.4vw, 1.32rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 0.8rem 0;
+  color: var(--ink-secondary);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--apple-blue);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+code,
+pre,
+.mono {
+  font-family: var(--font-mono);
+}
+
+code {
+  font-size: 0.88em;
+  padding: 0.15rem 0.4rem;
+  background-color: var(--bg-inset);
+  border-radius: 6px;
+  color: var(--ink-primary);
+}
+
+/* ==========================================================================
+   Apple HIG Layout & Floating Navigation Bar
+   ========================================================================== */
+
+.app-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 4rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    padding: 1.5rem 1.75rem 5rem 1.75rem;
+  }
+}
+
+/* Non-Accredited Notice Bar */
+.non-accredited-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--squircle-radius-sm);
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), var(--glass-inset-specular);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  font-size: 0.78rem;
+  color: var(--ink-secondary);
+  margin-bottom: 0.85rem;
+}
+
+.notice-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.notice-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.74rem;
+}
+
+/* Floating Top Header */
+.top-header {
+  position: sticky;
+  top: 12px;
+  z-index: 40;
+  margin-bottom: 1.75rem;
+  border-radius: var(--squircle-radius);
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-inset-specular);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  backdrop-filter: blur(28px) saturate(200%);
+  transition: all 0.3s ease;
+}
+
+.top-header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  gap: 0.75rem;
+}
+
+@media (min-width: 900px) {
+  .top-header-inner {
+    padding: 0.65rem 1.25rem;
+  }
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-mark {
+  font-family: var(--font-serif);
+  font-size: 1.38rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  background: linear-gradient(135deg, var(--apple-blue) 0%, var(--apple-indigo) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.brand-subtitle {
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .brand-subtitle {
+    display: inline;
+  }
+}
+
+/* Primary Apple Navigation Pill Group */
+.primary-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--bg-inset);
+  padding: 0.28rem;
+  border-radius: 14px;
+}
+
+.nav-tab {
+  background: transparent;
+  border: none;
+  padding: 0.44rem 0.82rem;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  user-select: none;
+}
+
+.nav-tab:hover {
+  color: var(--ink-primary);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .nav-tab:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+:root[data-theme='dark'] .nav-tab:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-tab[aria-selected='true'] {
+  background: #ffffff;
+  color: var(--ink-primary);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10), 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .nav-tab[aria-selected='true'] {
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  }
+}
+
+:root[data-theme='dark'] .nav-tab[aria-selected='true'] {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.nav-count {
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  font-weight: 600;
+  padding: 0.08rem 0.42rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--ink-secondary);
+}
+
+.nav-tab[aria-selected='true'] .nav-count {
+  background: var(--apple-blue-soft);
+  color: var(--apple-blue);
+}
+
+/* Header Action Controls (Timer & Theme Toggle) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Focus Timer Pill */
+.timer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.28rem 0.6rem;
+  background: var(--bg-inset);
+  border-radius: 12px;
+  font-size: 0.82rem;
+}
+
+.timer-readout {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--apple-blue);
+  min-width: 48px;
+}
+
+/* Theme Toggle Button & Segmented Cluster */
+.theme-toggle-cluster {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-inset);
+  border: 1px solid var(--border-hairline);
+  padding: 3px;
+  border-radius: var(--squircle-radius-sm);
+  gap: 2px;
+}
+
+.theme-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  border-radius: 9px;
+  padding: 4px 8px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.theme-chip:hover {
+  color: var(--ink-primary);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.theme-chip.active {
+  background: var(--glass-surface);
+  color: var(--ink-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0.5px rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+.brand-logo-symbol {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--apple-blue-soft);
+  border: 1px solid var(--apple-blue-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.15);
+}
+
+.theme-toggle-btn {
+  background: var(--bg-inset);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ink-secondary);
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--glass-border);
+  color: var(--ink-primary);
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Apple HIG Glass Cards, Panels & Modals
+   ========================================================================== */
+
+.panel,
+.card {
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  backdrop-filter: blur(25px) saturate(190%);
+  border-radius: var(--squircle-radius);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-surface);
+  box-shadow: var(--glass-shadow), var(--glass-inset-specular);
+  padding: 1.35rem;
+  margin-bottom: 1.25rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.panel-subtle {
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--squircle-radius-sm);
+  background: var(--bg-subtle);
+  border: 1px solid var(--glass-border);
+  font-size: 0.86rem;
+  line-height: 1.52;
+}
+
+/* Page Introductions */
+.page-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-intro p {
+  max-width: 780px;
+  font-size: 0.94rem;
+  margin-top: 0.35rem;
+  color: var(--ink-secondary);
+}
+
+/* Layouts */
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.35rem;
+}
+
+@media (min-width: 960px) {
+  .split-layout {
+    grid-template-columns: 320px 1fr;
+  }
+}
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+}
+
+@media (min-width: 768px) {
+  .two-col-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.three-col-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+}
+
+@media (min-width: 900px) {
+  .three-col-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Apple HIG Form Controls, Inputs & Sliders
+   ========================================================================== */
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.95rem;
+}
+
+.field-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.field-hint {
+  font-size: 0.77rem;
+  color: var(--ink-muted);
+}
+
+.input,
+.select,
+.textarea {
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--ink-primary);
+  background: var(--bg-inset);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--squircle-radius-sm);
+  padding: 0.65rem 0.85rem;
+  outline: none;
+  width: 100%;
+  transition: all 0.2s ease;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  background: var(--glass-surface);
+  border-color: var(--apple-blue);
+  box-shadow: 0 0 0 3px var(--apple-blue-soft);
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.textarea-mono {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+}
+
+/* Apple Range Sliders with Glass Track */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--bg-inset);
+  outline: none;
+  margin: 0.75rem 0;
+  transition: background 0.2s ease;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22), 0 0 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
+}
+
+input[type='range']::-webkit-slider-thumb:active {
+  transform: scale(1.02);
+}
+
+/* Checkbox & Radio */
+input[type='checkbox'],
+input[type='radio'] {
+  accent-color: var(--apple-blue);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Apple HIG Buttons
+   ========================================================================== */
+
+.btn {
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  padding: 0.55rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-surface);
+  color: var(--ink-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), var(--glass-inset-specular);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  transition: transform 0.18s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .btn:hover {
+    background: rgba(45, 45, 50, 0.85);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+}
+
+:root[data-theme='dark'] .btn:hover {
+  background: rgba(45, 45, 50, 0.85);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.btn-primary {
+  background: var(--apple-blue);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 14px var(--apple-blue-soft), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--apple-blue-hover);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 6px 18px var(--apple-blue-soft);
+}
+
+.btn-sage {
+  background: var(--apple-green-soft);
+  border-color: var(--apple-green-border);
+  color: var(--apple-green);
+}
+
+.btn-sage:hover {
+  background: var(--apple-green);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.btn-amber {
+  background: var(--apple-orange-soft);
+  border-color: var(--apple-orange-border);
+  color: var(--apple-orange);
+}
+
+.btn-amber:hover {
+  background: var(--apple-orange);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.btn-sm {
+  font-size: 0.80rem;
+  padding: 0.38rem 0.68rem;
+  border-radius: 9px;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   Apple Translucent Badges
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  background: var(--bg-inset);
+  color: var(--ink-secondary);
+  border: 1px solid var(--border-hairline);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.badge-teal {
+  background: var(--apple-teal-soft);
+  color: var(--apple-teal);
+  border-color: var(--apple-teal-border);
+}
+
+.badge-amber {
+  background: var(--apple-orange-soft);
+  color: var(--apple-orange);
+  border-color: var(--apple-orange-border);
+}
+
+.badge-sage {
+  background: var(--apple-green-soft);
+  color: var(--apple-green);
+  border-color: var(--apple-green-border);
+}
+
+.badge-terracotta {
+  background: var(--apple-red-soft);
+  color: var(--apple-red);
+  border-color: var(--apple-red-border);
+}
+
+/* ==========================================================================
+   Apple HIG Segmented Controls
+   ========================================================================== */
+
+.glass-segmented-control {
+  display: inline-flex;
+  background: var(--bg-inset);
+  padding: 0.24rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-hairline);
+  gap: 0.15rem;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+}
+
+.glass-segmented-item {
+  background: transparent;
+  border: none;
+  padding: 0.40rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  user-select: none;
+  transition: all 0.18s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.glass-segmented-item:hover {
+  color: var(--ink-primary);
+}
+
+.glass-segmented-item.selected {
+  background: #ffffff;
+  color: var(--ink-primary);
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .glass-segmented-item.selected {
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+}
+
+:root[data-theme='dark'] .glass-segmented-item.selected {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.glass-segmented-badge {
+  font-size: 0.70rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 9999px;
+  background: var(--bg-inset);
+}
+
+.glass-segmented-item.selected .glass-segmented-badge {
+  background: var(--apple-blue-soft);
+  color: var(--apple-blue);
+}
+
+/* ==========================================================================
+   Apple HIG Modal Backdrop & Dialog
+   ========================================================================== */
+
+.glass-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.40);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  backdrop-filter: blur(28px) saturate(180%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: glassFadeIn 0.25s ease-out;
+}
+
+.glass-modal-dialog {
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  animation: glassScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.glass-modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.glass-modal-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--apple-blue-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.glass-modal-title {
+  font-size: 1.28rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.glass-modal-subtitle {
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+  margin: 0.2rem 0 0 0;
+}
+
+.glass-close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.glass-close-btn:hover {
+  transform: scale(1.12);
+  opacity: 0.85;
+}
+
+@keyframes glassFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glassScaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ==========================================================================
+   Sidebar Lesson List & Items
+   ========================================================================== */
+
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.lesson-list-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 0.95rem;
+  border-radius: var(--squircle-radius-sm);
+  background: var(--bg-inset);
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: all 0.18s cubic-bezier(0.25, 1, 0.5, 1);
+  color: var(--ink-primary);
+}
+
+.lesson-list-btn:hover {
+  background: var(--glass-surface);
+  border-color: var(--glass-border);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.lesson-list-btn.active {
+  background: var(--glass-surface);
+  border-color: var(--apple-blue);
+  box-shadow: 0 4px 18px var(--apple-blue-soft), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.lesson-list-title {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink-primary);
+  line-height: 1.35;
+}
+
+.lesson-list-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
+  color: var(--ink-secondary);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-radius: var(--squircle-radius);
+  background: var(--glass-surface);
+  border: 1px dashed var(--border-strong);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  backdrop-filter: blur(25px) saturate(190%);
+  max-width: 680px;
+  margin: 2rem auto;
+}
+
+.empty-state h2,
+.empty-state h3 {
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  max-width: 520px;
+  margin: 0 auto 1.5rem auto;
+  font-size: 0.94rem;
+}
+
+/* ==========================================================================
+   Study Plan Stepper, Explorer & SRS Cards
+   ========================================================================== */
+
+.plan-step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.plan-step-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: var(--squircle-radius-sm);
+  background: var(--bg-inset);
+  border: 1px solid var(--border-hairline);
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.plan-step-item.done {
+  background: var(--apple-green-soft);
+  border-color: var(--apple-green-border);
+}
+
+.explorer-box {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border-radius: var(--squircle-radius);
+  background: var(--bg-inset);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+/* Toast Notifications */
+.toast-banner {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  padding: 0.85rem 1.25rem;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+  -webkit-backdrop-filter: blur(30px) saturate(190%);
+  backdrop-filter: blur(30px) saturate(190%);
+  animation: glassSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 460px;
+}
+
+.toast-success {
+  background: var(--apple-green-soft);
+  border: 1px solid var(--apple-green-border);
+  color: var(--ink-primary);
+}
+
+.toast-error {
+  background: var(--apple-red-soft);
+  border: 1px solid var(--apple-red-border);
+  color: var(--ink-primary);
+}
+
+@keyframes glassSlideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================================================
+   Apple HIG SRS Review Deck, Flashcards & Rating Grid
+   ========================================================================== */
+
+.flashcard-stage {
+  padding: 1.75rem;
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--squircle-radius);
+  box-shadow: var(--glass-shadow), var(--glass-inset-specular);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  backdrop-filter: blur(25px) saturate(190%);
+}
+
+.srs-rating-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .srs-rating-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.srs-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.75rem 0.65rem;
+  border-radius: var(--squircle-radius-sm);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-surface);
+  color: var(--ink-primary);
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+  box-shadow: var(--glass-inset-specular);
+}
+
+.srs-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.srs-btn:active {
+  transform: scale(0.97);
+}
+
+.srs-btn-label {
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+}
+
+.srs-btn-interval {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-secondary);
+}
+
+.srs-btn.again {
+  background: var(--apple-red-soft);
+  border-color: var(--apple-red-border);
+}
+.srs-btn.again .srs-btn-label {
+  color: var(--apple-red);
+}
+
+.srs-btn.hard {
+  background: var(--apple-orange-soft);
+  border-color: var(--apple-orange-border);
+}
+.srs-btn.hard .srs-btn-label {
+  color: var(--apple-orange);
+}
+
+.srs-btn.good {
+  background: var(--apple-green-soft);
+  border-color: var(--apple-green-border);
+}
+.srs-btn.good .srs-btn-label {
+  color: var(--apple-green);
+}
+
+.srs-btn.easy {
+  background: var(--apple-blue-soft);
+  border-color: var(--apple-blue-border);
+}
+.srs-btn.easy .srs-btn-label {
+  color: var(--apple-blue);
+}
+
+/* Apple Health Progress Bars */
+.progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: var(--bg-inset);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--apple-blue) 0%, var(--apple-teal) 100%);
+  transition: width 350ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Word overlap tokens in Language Studio */
+.token-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.65rem;
+}
+
+.word-token {
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-surface);
+}
+
+.word-token.matched {
+  background-color: var(--apple-green-soft);
+  border-color: var(--apple-green-border);
+  color: var(--apple-green);
+}
+
+.word-token.unmatched {
+  background-color: var(--apple-orange-soft);
+  border-color: var(--apple-orange-border);
+  color: var(--apple-orange);
+}
+
+/* Prose formatting inside learning units */
+.unit-prose {
+  white-space: pre-wrap;
+  color: var(--ink-primary);
+  font-size: 0.98rem;
+  line-height: 1.66;
+}
+
+.workbench-footer {
+  border-top: 1px solid var(--glass-border);
+  background: var(--glass-surface);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  backdrop-filter: blur(25px) saturate(190%);
+  padding: 1.25rem;
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+  text-align: center;
+}
+
+/* ==========================================================================
+   Responsive Utilities & Touch Refinements
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .top-header-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .primary-nav {
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+  }
+}

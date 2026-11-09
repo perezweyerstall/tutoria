@@ -1,0 +1,10 @@
+{
+  "name": "TutorIA — Mesa de Estudio Interactivo Personal",
+  "short_name": "TutorIA",
+  "description": "Espacio local de estudio interactivo de matemáticas, ciencias e idiomas sin cuentas, sin rachas diarias ni afirmaciones de instrucción acreditada.",
+  "start_url": "/",
+  "lang": "es-419",
+  "display": "standalone",
+  "background_color": "#FAF8F3",
+  "theme_color": "#16656E"
+}
