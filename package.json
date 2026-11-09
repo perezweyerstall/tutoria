@@ -1,0 +1,46 @@
+{
+  "name": "tutoria",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first interactive math, science, and retrieval study workbench.",
+  "scripts": {
+    "predev": "node scripts/ensure-env.mjs",
+    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
+    "prebuild": "node scripts/ensure-env.mjs",
+    "build": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "prestart": "node scripts/ensure-env.mjs",
+    "start": "NEXT_TELEMETRY_DISABLED=1 next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "seed:pba": "tsx scripts/seed-pba-curriculum.ts"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/newsreader": "^5.3.0",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
+    "better-sqlite3": "^13.0.3",
+    "drizzle-orm": "^0.45.4",
+    "next": "15.5.29",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.65.0",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.29",
+    "typescript": "^5",
+    "vitest": "^5.1.0"
+  }
+}
